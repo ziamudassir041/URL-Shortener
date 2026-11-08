@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Shortly - URL Shortener</title>
+
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <a href="index.html" class="logo">shortly<span>.</span></a>
+
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="login.html">Login</a>
+            <a href="register.html" class="nav-button">Get Started</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <p class="eyebrow">SIMPLE. FAST. SMART.</p>
+
+            <h1>
+                Shorten links.<br>
+                <span>Share with ease.</span>
+            </h1>
+
+            <p class="hero-description">
+                Turn long URLs into short, memorable links.
+                Choose your own custom link and share it anywhere.
+            </p>
+
+            <form id="shortenForm" class="shorten-form">
+
+                <div class="form-group">
+                    <label for="originalUrl">Original URL</label>
+                    <input
+                        type="url"
+                        id="originalUrl"
+                        name="originalUrl"
+                        placeholder="https://example.com/products"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="shortName">Custom short name</label>
+
+                    <div class="custom-link">
+                        <span class="link-prefix">/</span>
+                        <input
+                            type="text"
+                            id="shortName"
+                            name="shortName"
+                            placeholder="my-products"
+                            pattern="[A-Za-z0-9_-]+"
+                            maxlength="50"
+                            required
+                        >
+                    </div>
+                </div>
+
+                <button type="submit" id="shortenButton">
+                    Shorten URL
+                    <span aria-hidden="true">→</span>
+                </button>
+
+            </form>
+
+            <p id="message" class="message" role="status" aria-live="polite"></p>
+
+            <section id="result" class="result-card" hidden>
+                <p class="result-label">Your short link is ready</p>
+
+                <div class="result-link">
+                    <a id="shortUrl" href="#" target="_blank" rel="noopener noreferrer"></a>
+
+                    <button type="button" id="copyButton" class="copy-button">
+                        Copy
+                    </button>
+                </div>
+            </section>
+
+            <p class="hero-note">
+                Create a custom link in seconds.
+            </p>
+        </section>
+
+        <section class="features">
+            <article class="feature-card">
+                <span class="feature-number">01</span>
+                <h2>Custom links</h2>
+                <p>Choose a short name that is easy to remember and share.</p>
+            </article>
+
+            <article class="feature-card">
+                <span class="feature-number">02</span>
+                <h2>Quick redirects</h2>
+                <p>Send people to your original destination through a short link.</p>
+            </article>
+
+            <article class="feature-card">
+                <span class="feature-number">03</span>
+                <h2>Click tracking</h2>
+                <p>Track link clicks when supported by your backend.</p>
+            </article>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <a href="index.html" class="logo">shortly<span>.</span></a>
+        <p>Make every link count.</p>
+    </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="./js/api.js"></script>
+<script src="./js/auth.js"></script>
+<script src="./js/dashboard.js"></script>
+
+</body>
+</html>
+
+

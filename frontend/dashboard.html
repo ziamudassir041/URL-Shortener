@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Shortly</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/dashboard.css">
+</head>
+<body>
+    <header class="navbar">
+        <a href="index.html" class="logo">shortly<span>.</span></a>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <button type="button" id="logoutButton" class="nav-button">Log out</button>
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+            <p class="eyebrow">YOUR DASHBOARD</p>
+            <h1>Shorten a link.<br><span>Share with ease.</span></h1>
+            <p class="hero-description">Create a custom short link for any web address.</p>
+            <form id="shortenForm" class="shorten-form">
+                <div class="form-group">
+                    <label for="originalUrl">Original URL</label>
+                    <input type="url" id="originalUrl" name="originalUrl" placeholder="https://example.com/products" required>
+                </div>
+                <div class="form-group">
+                    <label for="shortName">Custom short name</label>
+                    <div class="custom-link"><span class="link-prefix">/</span><input type="text" id="shortName" name="shortName" placeholder="my-products" pattern="[A-Za-z0-9_-]+" maxlength="50" required></div>
+                </div>
+                <button type="submit" id="shortenButton">Shorten URL <span aria-hidden="true">→</span></button>
+            </form>
+            <p id="message" class="message" role="status" aria-live="polite"></p>
+            <section id="result" class="result-card" hidden>
+                <p class="result-label">Your short link is ready</p>
+                <div class="result-link"><a id="shortUrl" href="#" target="_blank" rel="noopener noreferrer"></a><button type="button" id="copyButton" class="copy-button">Copy</button></div>
+            </section>
+        </section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./js/api.js"></script>
+    <script src="./js/auth.js"></script>
+    <script src="./js/dashboard.js"></script>
+    <script>
+        document.getElementById("logoutButton").addEventListener("click", logout);
+        if (!getToken()) window.location.href = "login.html";
+    </script>
+</body>
+</html>
